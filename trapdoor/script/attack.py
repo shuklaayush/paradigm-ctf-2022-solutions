@@ -2,15 +2,24 @@
 import json
 import os
 import socket
+import subprocess
 
 
-HOST = "34.68.217.8"
-PORT = 31337
+HOST = os.getenv("HOST")
+PORT = int(os.getenv("PORT"))
 
 TICKET = os.getenv("TICKET")
 
 
-def get_bytecode(fn="Factorizor", contract="Factorizor"):
+def get_bytecode(fn="Factorizor", contract="Factorizor", compile=True):
+    if compile:
+        subprocess.run(
+            args=[
+                "forge",
+                "build",
+            ],
+        )
+
     with open(f"out/{fn}.sol/{contract}.json", "r") as f:
         obj = json.load(f)
         return obj["deployedBytecode"]["object"][2:]
