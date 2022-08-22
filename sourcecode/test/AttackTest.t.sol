@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import "forge-std/Test.sol";
 
 import "../contracts/Setup.sol";
-import "./HexUtils.sol";
+import "./Common.sol";
 
 contract AttackTest is Test {
     bytes bytecode;
