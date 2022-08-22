@@ -1,0 +1,11 @@
+[profile.default]
+src = 'contracts'
+out = 'out'
+libs = ['lib']
+
+verbosity = 3
+
+[rpc_endpoints]
+paradigm = "${RPC_URL}"
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
